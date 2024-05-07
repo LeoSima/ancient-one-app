@@ -1,0 +1,27 @@
+.card-cadastro {
+    min-width: 450px;
+    color: #fff;
+}
+
+.card-cadastro img {
+    max-width: 150px;
+}
+
+.card-cadastro input {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.card-cadastro input::placeholder {
+    color: #d1d1d1;
+    opacity: 0.8;
+}
+
+.btn-cadastro {
+    background-color: #311e64;
+    color: #fff;
+}
+
+.btn-cadastro:hover {
+    background-color: #423075;
+}
