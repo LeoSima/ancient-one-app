@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CustomValidators } from '../../shared/custom-validators.service';
 
 @Component({
 	selector: 'app-cadastro',
@@ -24,7 +25,8 @@ export class CadastroComponent {
 		email: ["", Validators.required],
 		username: ["", Validators.required],
 		senha: ["", Validators.required],
-		confirmaSenha: ["", Validators.required]
+		// confirmaSenha: new FormControl<string>("", [Validators.required, testeValidator])
+		confirmaSenha: ["", [Validators.required, CustomValidators.testeValidator]]
 	});
 
 	get nome(): string | undefined | null { return this.cadastroForm.controls.nome.value; }
@@ -44,11 +46,12 @@ export class CadastroComponent {
 
 	submitCadastro() {
 		this.classeFormularioValidado = true;
-		console.log(`nome: ${this.nome}`);
-		console.log(`sobrenome: ${this.sobrenome}`);
-		console.log(`email: ${this.email}`);
-		console.log(`username: ${this.username}`);
-		console.log(`senha: ${this.senha}`);
-		console.log(`confirmaSenha: ${this.confirmaSenha}`);
+		console.log(this.cadastroForm.controls.confirmaSenha.hasError('teste'));
+		// console.log(`nome: ${this.nome}`);
+		// console.log(`sobrenome: ${this.sobrenome}`);
+		// console.log(`email: ${this.email}`);
+		// console.log(`username: ${this.username}`);
+		// console.log(`senha: ${this.senha}`);
+		// console.log(`confirmaSenha: ${this.confirmaSenha}`);
 	}
 }

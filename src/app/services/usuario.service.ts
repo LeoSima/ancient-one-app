@@ -1,10 +1,9 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable, catchError, map } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { IMensagemSaudacao } from '../pages/convidado/convidado.component';
 import { environment } from '../../environments/environment';
 import { IUsuario } from '../interfaces/Usuario/IUsuario';
-import { IResponse } from '../interfaces/Response/IResponse';
 import { IResultadoOperacao } from '../interfaces/IResultadoOperacao';
 import { ISucessoCadastro } from '../interfaces/Usuario/ISucessoCadastro';
 import { IErrorResponse } from '../interfaces/Response/IErrorResponse';

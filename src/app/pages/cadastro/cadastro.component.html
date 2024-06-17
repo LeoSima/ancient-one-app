@@ -5,25 +5,37 @@
                 <div class="row py-1">
                     <div class="col-6">
                         <label for="nome" class="form-label">Nome:</label>
-                        <input type="text" id="nome" placeholder="Seu nome..." class="form-control border border-0" formControlName="nome" required/>
+                        <input type="text" id="nome" placeholder="Seu nome..." class="form-control border border-0" formControlName="nome" required />
+                        <div class="invalid-feedback">
+                            O campo Nome é obrigatório
+                        </div>
                     </div>
                     <div class="col-6">
                         <label for="sobrenome" class="form-label">Sobrenome:</label>
-                        <input type="text" id="sobrenome" placeholder="Seu sobrenome..." class="form-control border border-0" formControlName="sobrenome" />
+                        <input type="text" id="sobrenome" placeholder="Seu sobrenome..." class="form-control border border-0" formControlName="sobrenome" required />
+                        <div class="invalid-feedback">
+                            O campo Sobrenome é obrigatório
+                        </div>
                     </div>
                 </div>
 
                 <div class="row py-1">
                     <div class="col">
                         <label for="email" class="form-label">Email:</label>
-                        <input type="email" id="email" placeholder="Seu email..." class="form-control border border-0" formControlName="email" />
+                        <input type="email" id="email" placeholder="Seu email..." class="form-control border border-0" formControlName="email" required />
+                        <div class="invalid-feedback">
+                            O campo Email é obrigatório e deve estar num formato válido
+                        </div>
                     </div>
                 </div>
 
                 <div class="row py-1">
                     <div class="col">
                         <label for="username" class="form-label">Login:</label>
-                        <input type="text" id="username" placeholder="Seu nome de usuário..." class="form-control border border-0" formControlName="username" />
+                        <input type="text" id="username" placeholder="Seu nome de usuário..." class="form-control border border-0" formControlName="username" required />
+                        <div class="invalid-feedback">
+                            O campo Login é obrigatório
+                        </div>
                     </div>
                 </div>
 
@@ -31,7 +43,7 @@
                     <div class="col">
                         <label for="senha" class="form-label">Senha:</label>
                         <div class="input-group">
-                            <input [type]="ocultaSenha ? 'password' : 'text'" id="senha" placeholder="Sua senha..." class="form-control border border-0" formControlName="senha" />
+                            <input [type]="ocultaSenha ? 'password' : 'text'" id="senha" placeholder="Sua senha..." class="form-control border border-0" formControlName="senha" required />
                             <button type="button" class="btn btn-outline-secondary" (click)="alteraVisibilidadeSenha()">
                                 <svg *ngIf="ocultaSenha; else exibeSenha" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                                     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
@@ -44,15 +56,18 @@
                                     </svg>
                                 </ng-template>
                             </button>
+                            <div class="invalid-feedback">
+                                O campo Senha é obrigatório
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="row py-1">
-                    <div class="col">
+                    <div class="col-12">
                         <label for="confirma_senha" class="form-label">Confirme a senha:</label>
                         <div class="input-group">
-                            <input [type]="ocultaConfirmacaoSenha ? 'password' : 'text'" id="confirma_senha" placeholder="Confirme a senha..." class="form-control border border-0" formControlName="confirmaSenha" />
+                            <input [type]="ocultaConfirmacaoSenha ? 'password' : 'text'" id="confirma_senha" placeholder="Confirme a senha..." class="form-control border border-0" formControlName="confirmaSenha" required />
                             <button type="button" class="btn btn-outline-secondary" (click)="alteraVisibilidadeConfirmacaoSenha()">
                                 <svg *ngIf="ocultaConfirmacaoSenha; else exibeSenha" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                                     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
@@ -65,6 +80,9 @@
                                     </svg>
                                 </ng-template>
                             </button>
+                            <div class="invalid-feedback">
+                                O campo Confirme a Senha é obrigatório
+                            </div>
                         </div>
                     </div>
                 </div>
