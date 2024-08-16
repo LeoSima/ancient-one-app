@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CustomValidators } from '../../shared/custom-validators.service';
+import { senhasCoincidemValidator } from '../../directives/senhas-coincidem.directive';
 
 @Component({
 	selector: 'app-cadastro',
@@ -25,9 +25,8 @@ export class CadastroComponent {
 		email: ["", Validators.required],
 		username: ["", Validators.required],
 		senha: ["", Validators.required],
-		// confirmaSenha: new FormControl<string>("", [Validators.required, testeValidator])
-		confirmaSenha: ["", [Validators.required, CustomValidators.testeValidator]]
-	});
+		confirmaSenha: ["", Validators.required]
+	}, { validators: senhasCoincidemValidator});
 
 	get nome(): string | undefined | null { return this.cadastroForm.controls.nome.value; }
 	get sobrenome(): string | undefined | null { return this.cadastroForm.controls.sobrenome.value; }
@@ -47,6 +46,8 @@ export class CadastroComponent {
 	submitCadastro() {
 		this.classeFormularioValidado = true;
 		console.log(this.cadastroForm.controls.confirmaSenha.hasError('teste'));
+		console.log(this.cadastroForm.controls.confirmaSenha.hasError('senhasCoincidem'));
+		console.log(this.cadastroForm.controls.confirmaSenha.hasError("senhasCoincidem"));
 		// console.log(`nome: ${this.nome}`);
 		// console.log(`sobrenome: ${this.sobrenome}`);
 		// console.log(`email: ${this.email}`);

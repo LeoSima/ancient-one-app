@@ -1,0 +1,26 @@
+nz-content {
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+nz-card {
+    border-radius: 6px;
+}
+
+[nz-form] {
+    width: 420px !important;
+    max-width: 420px !important;
+}
+
+.btn-cadastro {
+    background-color: #311e64;
+    border: #311e64;
+}
+
+.btn-cadastro:hover {
+    background-color: #423075;
+}
+
+[nz-row] {
+    margin-bottom: 12px;
+}

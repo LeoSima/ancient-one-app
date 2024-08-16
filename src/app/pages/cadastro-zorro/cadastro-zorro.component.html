@@ -1,0 +1,151 @@
+<nz-layout>
+    <nz-content nz-flex nzJustify="center" nzAlign="center">
+        <nz-card>
+            <nz-page-header
+                (nzBack)="voltar()"
+                nzBackIcon
+                nzTitle="Voltar"
+            ></nz-page-header>
+            <form nz-form autocomplete="off" [formGroup]="cadastroForm" (ngSubmit)="submitCadastro()">
+                <div nz-row nzGutter="16">
+                    <div nz-col nzSpan="12">
+                        <nz-form-item>
+                            <nz-form-control nzHasFeedback [nzErrorTip]="erroNome">
+                                <nz-input-group nzPrefixIcon="idcard">
+                                    <input nz-input type="text" placeholder="Nome" formControlName="nome" />
+                                </nz-input-group>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col nzSpan="12">
+                        <nz-form-item>
+                            <nz-form-control nzHasFeedback [nzErrorTip]="erroSobrenome">
+                                <nz-input-group>
+                                    <input nz-input type="text" placeholder="Sobrenome" formControlName="sobrenome" />
+                                </nz-input-group>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row>
+                    <div nz-col nzSpan="24">
+                        <nz-form-item>
+                            <nz-form-control nzHasFeedback [nzErrorTip]="erroEmail">
+                                <nz-input-group nzPrefixIcon="mail">
+                                    <input nz-input type="email" placeholder="Email" formControlName="email" />
+                                </nz-input-group>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row>
+                    <div nz-col nzSpan="24">
+                        <nz-form-item>
+                            <nz-form-control nzHasFeedback [nzErrorTip]="erroUsername">
+                                <nz-input-group nzPrefixIcon="user">
+                                    <input nz-input type="text" placeholder="Nome de usuário" formControlName="username" />
+                                </nz-input-group>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row>
+                    <div nz-col nzSpan="24">
+                        <nz-form-item>
+                            <nz-form-control nzHasFeedback [nzErrorTip]="erroSenha">
+                                <nz-input-group nzPrefixIcon="lock" [nzSuffix]="suffixSenhaTemplate">
+                                    <input nz-input [type]="exibeSenha ? 'text' : 'password'" placeholder="Senha" formControlName="senha" />
+                                </nz-input-group>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row>
+                    <div nz-col nzSpan="24">
+                        <nz-form-item>
+                            <nz-form-control nzHasFeedback [nzErrorTip]="erroConfirmaSenha">
+                                <nz-input-group nzPrefixIcon="lock" [nzSuffix]="suffixConfirmaSenhaTemplate">
+                                    <input nz-input [type]="exibeConfirmaSenha ? 'text' : 'password'" placeholder="Confirme a senha" formControlName="confirmaSenha" />
+                                </nz-input-group>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row>
+                    <div nz-col nzSpan="24">
+                        <button nz-button nzBlock nzType="primary" class="btn-cadastro">Cadastrar</button>
+                    </div>
+                </div>
+            </form>
+        </nz-card>
+    </nz-content>
+</nz-layout>
+
+<!-- Templates -->
+
+<!-- Suffix senhas -->
+<ng-template #suffixSenhaTemplate>
+    <span
+        nz-icon
+        [nzType]="exibeSenha ? 'eye-invisible' : 'eye'"
+        (click)="exibeSenha = !exibeSenha"
+        style="cursor: pointer;"
+      ></span>
+</ng-template>
+
+<ng-template #suffixConfirmaSenhaTemplate>
+    <span
+        nz-icon
+        [nzType]="exibeConfirmaSenha ? 'eye-invisible' : 'eye'"
+        (click)="exibeConfirmaSenha = !exibeConfirmaSenha"
+        style="cursor: pointer;"
+      ></span>
+</ng-template>
+
+<!-- ErrorTips -->
+<ng-template #erroNome let-control>
+    @if (control.errors?.['required']) {
+        Informe o Nome!
+    }
+</ng-template>
+
+<ng-template #erroSobrenome let-control>
+    @if (control.errors?.['required']) {
+        Informe o Sobrenome!
+    }
+</ng-template>
+
+<ng-template #erroEmail let-control>
+    @if (control.errors?.['required']) {
+        Informe o E-mail!
+    }
+    @if (control.errors?.['email']) {
+        Formato de e-mail inválido!
+    }
+</ng-template>
+
+<ng-template #erroUsername let-control>
+    @if (control.errors?.['required']) {
+        Informe o Nome de Usuário!
+    }
+</ng-template>
+
+<ng-template #erroSenha let-control>
+    @if (control.errors?.['required']) {
+        Informe a Senha!
+    }
+</ng-template>
+
+<ng-template #erroConfirmaSenha let-control>
+    @if (control.errors?.['required']) {
+        Confirme a Senha!
+    } @else if (control.errors?.['senhasCoincidem']) {
+        As senhas não conferem!
+    }
+</ng-template>

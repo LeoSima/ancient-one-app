@@ -3,6 +3,6 @@
     --primary-color: #45408A;
 }
 
-html {
-    background-color: var(--primary-color);
+body, nz-layout {
+    background-color: var(--primary-color) !important;
 }

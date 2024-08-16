@@ -87,6 +87,8 @@
                     </div>
                 </div>
 
+                <div *ngIf="cadastroForm.hasError('senhasCoincidem') && (cadastroForm.touched || cadastroForm.dirty)"><p>teste de erro</p></div>
+
                 <div class="row mt-3">
                     <div class="col d-flex">
                         <button type="submit" class="btn btn-cadastro flex-fill">Cadastar</button>

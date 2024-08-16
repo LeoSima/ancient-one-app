@@ -1,22 +1,40 @@
-.card-login {
-    min-width: 390px;
-    color: #fff;
+nz-content {
+    min-width: 100vw;
+    min-height: 100vh;
 }
 
-.card-login img {
-    max-width: 150px;
+nz-card {
+    min-width: 350px;
+    border-radius: 6px;
 }
 
-.card-login input {
-    background-color: #1a1a1a;
-    color: #fff;
+nz-card img {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+img {
+    border: 10px, solid, #141414;
+}
+
+button {
+    margin-bottom: 12px;
 }
 
 .btn-login {
     background-color: #311e64;
-    color: #fff;
+    border: #311e64;
 }
 
 .btn-login:hover {
     background-color: #423075;
+}
+
+.btn-secundario {
+    background-color: #5C5C5C;
+    border: #5C5C5C;
+}
+
+.btn-secundario:hover {
+    background-color: #7C7C7C;
 }

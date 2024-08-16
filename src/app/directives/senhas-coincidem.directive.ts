@@ -5,7 +5,7 @@ export const senhasCoincidemValidator: ValidatorFn = (control: AbstractControl):
 	const senha = control.get('senha');
 	const confirmaSenha = control.get('confirmaSenha');
 
-	return senha && confirmaSenha && senha.value === confirmaSenha.value ? { senhasCoincidem: true } : null;
+	return senha && confirmaSenha && senha.value !== confirmaSenha.value ? { senhasCoincidem: true } : null;
 };
 
 @Directive({

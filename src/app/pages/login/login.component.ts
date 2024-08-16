@@ -1,19 +1,23 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-
+import { Component, inject } from '@angular/core';
+import { NzLibModule } from '../../shared/nz-lib/nz-lib.module';
+import { Router } from '@angular/router';
 
 @Component({
-	selector: 'app-login',
+	selector: 'app-login-zorro',
 	standalone: true,
-	imports: [RouterModule, CommonModule],
+	imports: [NzLibModule],
 	templateUrl: './login.component.html',
 	styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-	ocultaSenha = true;
+	private router: Router = inject(Router);
+	public exibeSenha: boolean = false;
 
-	alteraVisibilidadeSenha() {
-		this.ocultaSenha = !this.ocultaSenha;
+	public entrarComoConvidado() {
+		this.router.navigate(['/convidado']);
+	}
+
+	public acessarTelaCadastro() {
+		this.router.navigate(['/cadastro']);
 	}
 }
